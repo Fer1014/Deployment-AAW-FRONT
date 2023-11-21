@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+<link href="add.component.css" rel="stylesheet">
+</head>
+
+<div class="toolbar-margin"></div>
+<body>
+  <div class="card-container">
+    <div class="card">
+    <div class="form-info-child">
+  
+        <h1>Registro de nuevo Comentario</h1>
+
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+              <div class="inputs1">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Comentario</mat-label>
+                    <textarea matInput #comentario maxlength="500" placeholder="Deja un comentario..." formControlName="comentario"></textarea>
+                    <mat-hint align="start"><strong>Max: 500</strong> </mat-hint>
+                    <mat-hint align="end">{{comentario.value.length}} </mat-hint>
+                    <!--<input matInput placeholder="comentario" formControlName="comentario" />-->
+                    <mat-error *ngIf="obtenerControlCampo('comentario')?.errors?.['required']">
+                        Complete el campo!
+                    </mat-error>
+                    
+                </mat-form-field>  
+              </div>
+
+              <div class="inputs1">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Puntuacion</mat-label>
+                    <input matInput placeholder="puntuacion" type="number" formControlName="puntuacion" />
+                    <mat-error *ngIf="obtenerControlCampo('puntuacion')?.errors?.['required']">
+                        Complete el campo!
+                    </mat-error>
+                    <mat-error *ngIf="obtenerControlCampo('puntuacion')?.errors?.['puntuacionInvalida']">
+                      La puntuación debe estar entre 0 y 5.
+                    </mat-error>
+                    
+                </mat-form-field>  
+              </div>
+
+              <div class="button-container">
+                
+                <button mat-button class="add-button">Registrar</button>
+                
+              </div>
+              <p>{{ mensaje }}</p>
+          </form>
+        </div>
+        </div>
+      </div>
+
+
+</body>
+</html>

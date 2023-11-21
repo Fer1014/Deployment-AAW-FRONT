@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+body {
+  font-family: 'Kiwi Maru', sans-serif;
+}
+.grid-container {
+  margin: 20px;
+
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+  
+  
+}
+
+
+mat-toolbar {
+  background-color: #292424;
+  font-family: "Kiwi Maru", sans-serif;
+  color: white;
+}
+
+.toolbar-margin {
+  margin-top: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Coloca el botón al lado derecho */
+  margin-top: 20px;
+}
+
+.add-button {
+  background-color: #40BF80;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Kiwi Maru", sans-serif;
+  cursor: pointer;
+  margin-right: 2%; /* Añade el mismo margen derecho que la tarjeta de puntuación */
+}
+
+.cancel-button {
+  background-color: #40BF80;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Kiwi Maru", sans-serif;
+  cursor: pointer;
+  margin-right: 2%; /* Añade el mismo margen derecho que la tarjeta de puntuación */
+  justify-content: flex-end
+}
+
+.mat-h1 {
+  font-family: 'Kiwi Maru', sans-serif;
+  text-align: center; /* Alinea el texto al centro horizontalmente */
+  margin-right: 10px;
+  
+}
+
+.mat-card-title {
+  font-family: 'Kiwi Maru', sans-serif;
+}
+
+.example-card{
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.checked {
+  color: orange;
+}
+
+.button-container2 {
+  margin-top: auto; /* Empuja el contenedor hacia la parte inferior de la tarjeta */
+  display: flex;
+  justify-content: flex-end; /* Alinear el contenido al extremo derecho */
+  align-items: center;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

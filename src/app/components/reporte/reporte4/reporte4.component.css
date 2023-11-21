@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+body {
+  font-family: 'Kiwi Maru', sans-serif;
+}
+
+.container{
+  width: 1000px;
+  height: 500px;
+  margin-left: 15%;
+  font-family: 'Kiwi Maru', sans-serif;
+}

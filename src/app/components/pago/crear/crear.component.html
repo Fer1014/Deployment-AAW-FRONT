@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="text-align: center">
+        <h2>Registro de Pago</h2> 
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+             <!-- Curso-->
+        <mat-form-field class="example-full-width" >
+            <mat-label>Monto</mat-label>
+        
+            <input
+             matInput placeholder="Monto" 
+             
+             formControlName="monto" 
+             />
+             <mat-error
+              *ngIf="obtenerControlCampo('monto')?.errors?.['required']"
+            >
+              El monto es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input
+              matInput
+              placeholder="Ingrese fecha"
+              [matDatepicker]="picker"
+              formControlName="fecha"
+              [max]="maxFecha"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('fecha')?.errors?.['required']"
+            >
+              La fecha de creación es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field>
+            <mat-label>Tarjetas</mat-label>
+            <!-- Agregar el formControlName-->
+            <!-- y poner lo que esta en el NgOinit-->
+            <mat-select formControlName="tarjeta">
+                <!--La variable de la lista de Universidades -->
+                <!--cambiamos let u y [value]="u.idUniversity , id de la univrsidad y -->
+              <!--Lo que quiero que muestre es nombre con u.nameUniversity-->
+                <mat-option *ngFor="let u of listaTarjetas" [value]="u.idTarjeta">
+                {{u.numeroTarjeta}}
+              </mat-option>
+            </mat-select>
+            <!--Agregando mat error para que sean obligatorios-->
+            <mat-error
+            *ngIf="obtenerControlCampo('tarjeta')?.errors?.['required']"
+          >
+            la tarjeta es obligatoria .
+          </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field>
+            <mat-label>Proyectos</mat-label>
+            <!-- Agregar el formControlName-->
+            <!-- y poner lo que esta en el NgOinit-->
+            <mat-select formControlName="proyecto">
+                <!--La variable de la lista de Universidades -->
+                <!--cambiamos let u y [value]="u.idUniversity , id de la univrsidad y -->
+              <!--Lo que quiero que muestre es nombre con u.nameUniversity-->
+                <mat-option *ngFor="let u of listaProyectos" [value]="u.idproyecto">
+                {{u.descripcion}}
+              </mat-option>
+            </mat-select>
+            <!--Agregando mat error para que sean obligatorios-->
+            <mat-error
+            *ngIf="obtenerControlCampo('proyecto')?.errors?.['required']"
+          >
+            El proyecto es obligatorio .
+          </mat-error>
+          </mat-form-field>
+
+          <br/>
+          <button mat-raised-button class="custom-button">Aceptar</button>
+        <button mat-raised-button class="custom-button" routerLink="/pagos">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+        </form>
+    </div>
+</body>
+</html>

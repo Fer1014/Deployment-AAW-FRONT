@@ -1,0 +1,65 @@
+<div class="container" style="text-align: center">
+    <h2>Registrar Tarjeta</h2>
+    <br />
+    <form [formGroup]="form" (submit)="registrar()" class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>numeroTarjeta</mat-label>
+            <input matInput placeholder="numeroTarjeta" formControlName="numeroTarjeta" maxlength="15" />
+            <mat-error *ngIf="obtenerControlCampo('numeroTarjeta')?.errors?.['required']">
+                Complete el campo
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <mat-label>Fecha de expiracion</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Fecha de expiracion"
+              formControlName="fechaexp"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('fechaexp')?.errors?.['required']"
+            >
+              El Campo es obligatorio
+            </mat-error>
+          </mat-form-field>
+
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombre" maxlength="25" />
+            <mat-error *ngIf="obtenerControlCampo('nombre')?.errors?.['required']">
+                Complete el campo
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>apellido</mat-label>
+            <input matInput placeholder="Apellido" formControlName="apellido" maxlength="25" />
+            <mat-error *ngIf="obtenerControlCampo('apellido')?.errors?.['required']">
+                Complete el campo
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>CVV</mat-label>
+            <input matInput placeholder="CVV" formControlName="cvv" maxlength="25" />
+            <mat-error *ngIf="obtenerControlCampo('cvv')?.errors?.['required']">
+                Complete el campo
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary">
+            Registrar
+        </button>
+        <button mat-raised-button color="warn" routerLink="/usuarios/listar">Cancelar</button>
+        <p>{{ mensaje }}</p>
+    </form>
+</div>

@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Kiwi Maru", sans-serif;
+  display: flex;
+  justify-content: center;
+      height: 100vh;
+      margin: 0;
+}
+
+mat-toolbar {
+  background-color: #292424;
+  font-family: "Kiwi Maru", sans-serif;
+  color: white;
+}
+
+.toolbar-margin {
+  margin-top: 20px;
+}
+
+.card-container {
+  /*display: flex;
+  justify-content: space-between;
+  margin: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4; /* Gris claro de fondo */
+}
+
+.card {
+  /*
+  width: 49%;
+  margin-right: 2%;
+  text-align: center;
+  color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Añade bordes redondeados a las tarjetas */
+  
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 500px; /* ajusta el ancho según sea necesario */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centrar el contenido de la card */
+  margin: auto; /* Centrar la tarjeta en el contenedor */
+  background-color: #fff; /* Color de fondo de la tarjeta */
+}
+
+.comment-card {
+  width: 100%;
+  text-align: center;
+  color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Añade bordes redondeados a la tarjeta de comentario */
+}
+
+.small-card {
+  width: 49%;
+  margin-left: 2%;
+  text-align: center;
+  color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Añade bordes redondeados a la tarjeta de puntuación */
+}
+
+.card-header {
+  background-color: #D9D9D9;
+  font-family: "Kiwi Maru", sans-serif;
+  color: #292424;
+  padding: 10px;
+}
+
+.card-content {
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-input-container {
+  margin-left: 0;
+}
+
+.mat-input-element {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #D9D9D9;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Coloca el botón al lado derecho */
+  margin-top: 20px;
+}
+
+.add-button {
+  background-color: #40BF80;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Kiwi Maru", sans-serif;
+  cursor: pointer;
+  margin-right: 2%; /* Añade el mismo margen derecho que la tarjeta de puntuación */
+}
+
+.cancel-button {
+  background-color: rgb(155, 55, 50);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Kiwi Maru", sans-serif;
+  cursor: pointer;
+  margin-right: 2%; /* Añade el mismo margen derecho que la tarjeta de puntuación */
+}
+/*.inputs1 {
+  margin-right: 5%; 
+}*/
+
+.body{
+  width: 70%;
+}
+
+.card-containe{
+  width: 100%;  
+}
+
+input{
+  height: 500px;
+}
+.example-form{
+  min-width: 500px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.inputs1{
+  width: 100%;
+}
+
+.example-full-width{
+  width: 100%;
+}

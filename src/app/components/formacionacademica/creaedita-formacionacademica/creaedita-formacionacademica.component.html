@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-form" style="text-align: center">
+    <h2>Añadir Formacion Academica</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>idFormacionAcademica</mat-label>
+        <input matInput placeholder="Id" formControlName="idFormacionAcademica" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre Secundaria</mat-label>
+        <input matInput placeholder="Secundaria" formControlName="nombre" />
+        <mat-error *ngIf="obtenerControlCampo('nombre')?.errors?.['required']">
+          El nombre del curso es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Nombre de Universidad</mat-label>
+        <mat-select formControlName="university">
+          <mat-option *ngFor="let u of listaUniversidades" [value]="u.idUniversidad">
+            {{ u.nameUniversidades }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('university')?.errors?.['required']">
+          La universidad es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Nombre de Carrera</mat-label>
+        <mat-select formControlName="career">
+          <mat-option *ngFor="let c of listaCarreras" [value]="c.idCarrera">
+            {{ c.nameCarreras }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('career')?.errors?.['required']">
+          La carrera es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <button mat-raised-button class="aceptar-button">Aceptar</button>
+      <button mat-raised-button class="cancelar-button" routerLink="/carrera/nuevo">
+        Cancelar
+      </button>
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+</body>
+
+</html>

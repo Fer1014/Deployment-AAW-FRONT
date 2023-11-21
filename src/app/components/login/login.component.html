@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-form">
+        <div class="logo-info">
+            <div class="logo-info-child">
+                <img src="assets/LWLogo.png" alt="Logo de mi aplicación" class="logo-img">
+                <h2>¡BIENVENIDO!</h2>
+                <p>Encantado de tenerte por aqui otra vez, por favor ingresa tus credenciales para iniciar sesion o de lo contrario
+                    da click en "Create Account" para registrar una cuenta nueva.</p>
+            </div>
+        </div>
+        <div class="form-info">
+            <div class="form-info-child">
+                <div class="container" style="text-align: center">
+                    <h2>Inicie sesión</h2>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput placeholder="Username" [(ngModel)]="username" />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="password" />
+                        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                            {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                        </mat-icon>
+                    </mat-form-field>
+                    <br />
+                    <button mat-raised-button (click)="login()" class="custom-button" >Ingresar</button>
+                </div>
+                <h2><a href="/usuarios/nuevo">Create Account</a></h2>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

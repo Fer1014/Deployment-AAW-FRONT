@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Lista de Pagos</h1>
+
+    <div class="button-container">
+      <button class="custom-button" mat-raised-button color="primary" routerLink="nuevo">Nuevo</button>
+    </div>
+
+    <mat-form-field>
+      <input matInput (keyup)="filter($event)" placeholder="Buscar" />
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Columnas -->
+      <ng-container matColumnDef="idPago">
+        <th mat-header-cell *matHeaderCellDef>Codigo</th>
+        <td mat-cell *matCellDef="let element">{{element.idPago}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="monto">
+        <th mat-header-cell *matHeaderCellDef>Monto</th>
+        <td mat-cell *matCellDef="let element">{{element.monto}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tarjeta">
+        <th mat-header-cell *matHeaderCellDef>Tarjeta</th>
+        <td mat-cell *matCellDef="let element">{{element.tarjeta.numeroTarjeta}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="proyectos">
+        <th mat-header-cell *matHeaderCellDef>Proyecto</th>
+        <td mat-cell *matCellDef="let element">{{element.proyectos.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion02">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button class="custom-button" (click)="eliminar(element.idproyecto)">
+            <mat-icon>delete</mat-icon> Eliminar
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+    </mat-paginator>
+  </div>
+</body>
+
+</html>

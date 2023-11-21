@@ -1,0 +1,156 @@
+a {
+    color: inherit;
+  }
+  
+  a.btn {
+    color: black;
+    border-radius: 100px;
+    background-color: white;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .contact form .btn {
+    padding: 18px 30px;
+    border: 2px solid;
+  }
+  
+  .contact_us {
+    color: white;
+  }
+  
+  .contact_us form {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    width: 15%;
+  }
+  
+  section p{
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 0 20px;
+    line-height: 2;
+    max-width: 800px;
+    font-size: 20px;
+  }
+  
+  .contact_us form input {
+    padding: 15px;
+    flex: 1;
+    font-size: 18px;
+    color: #555;
+    margin-right: 5px;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 800px){
+    .contact_us form input {
+      flex-basis: 100%;
+      margin: 20px 20px 20px 20px;
+    }
+  }
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 5px;
+  }
+  .navbar-brand > img {
+    width: 100px;
+  }
+  .navbar-main .active {
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    font-weight: 400;
+    transition: 0.5s;
+  }
+  .nav a:hover {
+    color: black;
+    background-color: grey;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .header-main {
+    min-height: 100vh;
+    min-width: 100vh;
+  }
+  .carousel-inner {
+    max-height: 715px;
+  }
+  
+  /*-------------------------FOOTER*/
+  
+  .footer {
+    background: #212529;
+    color: white;
+    padding: 20px 0;
+  }
+  .footer .row {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+  
+  .list-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .list-footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+  }
+  .social-media ul {
+    padding: 0;
+  }
+  .social-media ul li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .social-media ul li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .social-media ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .list-footer {
+      display: none;
+    }
+    .about-footer {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .list-footer {
+      display: none;
+    }
+    .about-footer {
+      display: none;
+    }
+    /*-----------------------end-FOOTER*/
+  }
+  

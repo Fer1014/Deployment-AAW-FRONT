@@ -1,0 +1,11 @@
+body{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.container {
+    position: relative;
+}
+.paginator {
+    position:block;
+
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+  <link href="listar.component.html" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <div class="toolbar-margin"></div>
+  
+  <div class="grid-container">
+    <div class="button-container">
+      <h1 class="mat-h1">Comentarios</h1>
+      <button class="add-button" (click)="navigateToComentarioPuntuacion()">Añadir</button>
+    </div>
+  </div>
+  <div class = "grid-container">
+    <mat-card class="example-card" *ngFor="let comentario of obs | async" >
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{comentario.users.username}}</mat-card-title>
+          <mat-card-subtitle>{{comentario.users.correo}}</mat-card-subtitle>
+          
+          <div>
+          <h3>Puntuacion: {{comentario.puntuacion}}</h3>
+          
+          <span *ngIf="comentario.puntuacion<1" class="fa fa-star"></span>
+          <span *ngIf="comentario.puntuacion>=1" class="fa fa-star checked"></span>
+          <span *ngIf="comentario.puntuacion<2" class="fa fa-star"></span>
+          <span *ngIf="comentario.puntuacion>=2" class="fa fa-star checked"></span>
+          <span *ngIf="comentario.puntuacion<3" class="fa fa-star"></span>
+          <span *ngIf="comentario.puntuacion>=3" class="fa fa-star checked"></span>
+          <span *ngIf="comentario.puntuacion<4" class="fa fa-star"></span>
+          <span *ngIf="comentario.puntuacion>=4" class="fa fa-star checked"></span>
+          <span *ngIf="comentario.puntuacion<5" class="fa fa-star"></span>
+          <span *ngIf="comentario.puntuacion>=5" class="fa fa-star checked"></span>
+          </div>
+          <!--<img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >-->
+        </mat-card-title-group>
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        
+        <p>
+          <div class="comment-container">
+            <p>
+        {{ comentario.comentario }} </p>
+        <div class="button-container2">
+        
+    
+        <button *ngIf="usuarioSesion==comentario.users.id" class="cancel-button" (click)="eliminar(comentario.idComentario)">Eliminar</button>
+      </div>
+      </div>
+      </mat-card-content>
+
+      
+    </mat-card>
+</div>
+  
+  <mat-paginator [length]="5"
+              [pageSize]="5"
+              aria-label="Select page"
+              showFirstLastButtons>
+              
+    </mat-paginator>
+  
+</body>
+</html>
+
+

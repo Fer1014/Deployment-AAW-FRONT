@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <mat-card class="example-card">
+      <br>
+      <div style="text-align: right">
+        <button
+        mat-raised-button
+        color="primary"
+        routerLink="nuevo"
+      >
+        Nuevo
+      </button>
+      </div>
+      
+      <h2 style="text-align: center"><span>{{sub}}</span></h2>
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba1.jpg" class="center-image">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+    
+    <div class="container">
+      
+      <br />
+      <h2 style="text-align: center">Curriculum</h2>
+      <br />
+      <!-- Mat Card -->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>Formacion Academica</mat-card-title>
+            <mat-card-subtitle>Informacion de Educacion</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+      <br />
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>Codigo</th>
+          <td mat-cell *matCellDef="let element">{{ element.idCv }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="secundaria">
+          <th mat-header-cell *matHeaderCellDef>Secundaria</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.formacionAcademica.nombreSecundaria }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="universidad">
+          <th mat-header-cell *matHeaderCellDef>Universidad</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.formacionAcademica.universidades.nameUniversidades }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FIngresoUni">
+          <th mat-header-cell *matHeaderCellDef>F. Ingreso Uni</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.formacionAcademica.universidades.fechaIngreso }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FEgresoUni">
+          <th mat-header-cell *matHeaderCellDef>F. Egreso Uni</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.formacionAcademica.universidades.fechaEgreso }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="carrera">
+          <th mat-header-cell *matHeaderCellDef>Carrera</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.formacionAcademica.carreras.nameCarreras }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef>Usuario</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.users.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center">Editar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="actualizar-button"
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.idCv]"
+            >
+              Actualizar
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center">Borrar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="eliminar-button"
+              mat-raised-button
+              color="accent"
+              (click)="eliminar(element.idCv)"
+            >
+              Eliminar
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsFA"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsFA"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+    </div>
+    <div class="container">
+      <br />
+      <br />
+      <!-- Mat Card -->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>Idiomas</mat-card-title>
+            <mat-card-subtitle>Informacion del Lenguaje</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+      <br />
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>Codigo</th>
+          <td mat-cell *matCellDef="let element">{{ element.idCv }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="idioma">
+          <th mat-header-cell *matHeaderCellDef>Idioma</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.idiomas.idiomas }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nivelEscrito">
+          <th mat-header-cell *matHeaderCellDef>Nivel Escrito</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.idiomas.nivelEscrito }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nivelOral">
+          <th mat-header-cell *matHeaderCellDef>Nivel Oral</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.idiomas.nivelOral }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef>Usuario</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.users.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef >Editar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="actualizar-button"
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.idCv]"
+            >
+              Actualizar
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef >Borrar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="eliminar-button"
+              mat-raised-button
+              color="accent"
+              (click)="eliminar(element.idCv)"
+            >
+              Eliminar
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsIdioma"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsIdioma"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+    </div>
+    <div class="container">
+      <br />
+      <br />
+      <!-- Mat Card -->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>Certificaciones</mat-card-title>
+            <mat-card-subtitle>Informacion de Certificados</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+      <br />
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>Codigo</th>
+          <td mat-cell *matCellDef="let element">{{ element.idCv }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre Empresa</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.certificaciones.nombreCertificaciones }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="empresaEmi">
+          <th mat-header-cell *matHeaderCellDef>Empresa Emisora</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.certificaciones.empresaEmisora }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fexpedicion">
+          <th mat-header-cell *matHeaderCellDef>Fecha Expedicion</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.certificaciones.fechaExpedicion }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fcaducidad">
+          <th mat-header-cell *matHeaderCellDef>Fecha Caducidad</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.certificaciones.fechaCaducidad }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="url">
+          <th mat-header-cell *matHeaderCellDef>URL</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.certificaciones.urlCredencial }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef>Usuario</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.users.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center" >Editar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="actualizar-button"
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.idCv]"
+            >
+              Actualizar
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center" >Borrar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="eliminar-button"
+              mat-raised-button
+              color="accent"
+              (click)="eliminar(element.idCv)"
+            >
+              Eliminar
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsCertificado"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsCertificado"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+    </div>
+    <div class="container">
+      <br />
+      <br />
+      <!-- Mat Card -->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>Experiencia Laboral</mat-card-title>
+            <mat-card-subtitle>Experiencia de Trabajos Previos</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+      <br />
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>Codigo</th>
+          <td mat-cell *matCellDef="let element">{{ element.idCv }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="empresa">
+          <th mat-header-cell *matHeaderCellDef>Empresa</th>
+          <td mat-cell *matCellDef="let element">{{ element.experiencialaboral.empresa }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="cargo">
+          <th mat-header-cell *matHeaderCellDef>Cargo</th>
+          <td mat-cell *matCellDef="let element">{{ element.experiencialaboral.cargo }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaI">
+          <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+          <td mat-cell *matCellDef="let element">{{ element.experiencialaboral.fechaInicio }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaF">
+          <th mat-header-cell *matHeaderCellDef>Fecha Fin</th>
+          <td mat-cell *matCellDef="let element">{{ element.experiencialaboral.fechaFinalizado }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef>Usuario</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.users.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center" >Editar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="actualizar-button"
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.idCv]"
+            >
+              Actualizar
+
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center" >Borrar</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="eliminar-button"
+              mat-raised-button
+              color="accent"
+              (click)="eliminar(element.idCv)"
+            >
+              Eliminar
+
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsExperienciaLaboral"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsExperienciaLaboral"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+    </div>
+  </body>
+</html>

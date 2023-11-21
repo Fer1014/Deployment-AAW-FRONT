@@ -1,0 +1,49 @@
+<div class="container" style="text-align: center; color: red;">
+    <h2>{{ edicion ? 'Editar Certificación' : 'Insertar Certificación' }}</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre Certificación</mat-label>
+            <input matInput placeholder="Nombre Certificación" formControlName="nombreCertificaciones" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>Empresa Emisora</mat-label>
+            <input matInput placeholder="Empresa Emisora" formControlName="empresaEmisora" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>Fecha de Expedición</mat-label>
+            <input matInput [matDatepicker]="expedicionPicker" formControlName="fechaExpedicion" />
+            <mat-datepicker-toggle matSuffix [for]="expedicionPicker"></mat-datepicker-toggle>
+            <mat-datepicker #expedicionPicker></mat-datepicker>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>Fecha de Caducidad</mat-label>
+            <input matInput [matDatepicker]="caducidadPicker" formControlName="fechaCaducidad" />
+            <mat-datepicker-toggle matSuffix [for]="caducidadPicker"></mat-datepicker-toggle>
+            <mat-datepicker #caducidadPicker></mat-datepicker>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>URL Credencial</mat-label>
+            <input matInput placeholder="URL Credencial" formControlName="urlCredencial" />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>Fecha de Expedición</mat-label>
+            <input matInput [matDatepicker]="expedicionPicker" formControlName="fechaExpedicion" />
+            <mat-datepicker-toggle matSuffix [for]="expedicionPicker"></mat-datepicker-toggle>
+            <mat-datepicker #expedicionPicker></mat-datepicker>
+        </mat-form-field>
+        <br />
+
+        <button mat-raised-button color="primary">{{ edicion ? 'Actualizar' : 'Aceptar' }}</button>
+        <button mat-raised-button color="warn" routerLink="/certificacion/listar">
+            Cancelar
+          </button>
+        <p>{{ mensaje }}</p>
+    </form>
+</div>

@@ -1,0 +1,76 @@
+<div class="container">
+  <br />
+  <h2 style="text-align: center">Lista de Certificaciones</h2>
+
+  <div style="text-align: right">
+    <button mat-raised-button color="primary" routerLink="nuevo">
+      Nuevo
+    </button>
+  </div>
+
+  <mat-form-field>
+    <input matInput (keyup)="filter($event)" placeholder="Buscar" />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- ID_Certificaciones -->
+    <ng-container matColumnDef="id_Certificaciones">
+      <th mat-header-cell *matHeaderCellDef>ID Certificación</th>
+      <td mat-cell *matCellDef="let element">{{ element.id_Certificaciones }}</td>
+    </ng-container>
+
+    <!-- nombreCertificaciones -->
+    <ng-container matColumnDef="nombreCertificaciones">
+      <th mat-header-cell *matHeaderCellDef>Nombre Certificación</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombreCertificaciones }}</td>
+    </ng-container>
+
+    <!-- empresaEmisora -->
+    <ng-container matColumnDef="empresaEmisora">
+      <th mat-header-cell *matHeaderCellDef>Empresa Emisora</th>
+      <td mat-cell *matCellDef="let element">{{ element.empresaEmisora }}</td>
+    </ng-container>
+
+    <!-- fechaExpedicion -->
+    <ng-container matColumnDef="fechaExpedicion">
+      <th mat-header-cell *matHeaderCellDef>Fecha Expedición</th>
+      <td mat-cell *matCellDef="let element">{{ element.fechaExpedicion | date:'yyyy-MM-dd' }}</td>
+    </ng-container>
+
+    <!-- fechaCaducidad -->
+    <ng-container matColumnDef="fechaCaducidad">
+      <th mat-header-cell *matHeaderCellDef>Fecha Caducidad</th>
+      <td mat-cell *matCellDef="let element">{{ element.fechaCaducidad | date:'yyyy-MM-dd' }}</td>
+    </ng-container>
+
+    <!-- urlCredencial -->
+    <ng-container matColumnDef="urlCredencial">
+      <th mat-header-cell *matHeaderCellDef>URL Credencial</th>
+      <td mat-cell *matCellDef="let element">{{ element.urlCredencial }}</td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" [routerLink]="['/certificacion/edicion', element.id_Certificaciones]">
+          Actualizar
+        </button>
+
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="accion02">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="accent" (click)="eliminar(element.id_Certificaciones)">
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[4, 7, 10]" showFirstLastButtons></mat-paginator>
+</div>

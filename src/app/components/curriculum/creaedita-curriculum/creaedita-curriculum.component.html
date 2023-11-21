@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-form" style="text-align: center">
+      <h2>Añadir Curriculum</h2>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>idCv</mat-label>
+          <input matInput placeholder="Id" formControlName="idCv" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Secundaria</mat-label>
+          <mat-select formControlName="formacionAcademica">
+            <mat-option
+              *ngFor="let cv of listaFA"
+              [value]="cv.idFormacionAcademica"
+            >
+              {{ cv.nombreSecundaria }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('formacionAcademica')?.errors?.['required']"
+          >
+            La Secundaria es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Idioma</mat-label>
+          <mat-select formControlName="idiomas">
+            <mat-option
+              *ngFor="let i of listaIdiomas"
+              [value]="i.id_Idiomas"
+            >
+              {{ i.idiomas }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('idiomas')?.errors?.['required']"
+          >
+            El Idioma es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Certificacion</mat-label>
+          <mat-select formControlName="certificaciones">
+            <mat-option
+              *ngFor="let cert of listaCertificaciones"
+              [value]="cert.id_Certificaciones"
+            >
+              {{ cert.nombreCertificaciones }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('certificaciones')?.errors?.['required']"
+          >
+            El Certificado es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Experiencia Laboral</mat-label>
+          <mat-select formControlName="experiencialaboral">
+            <mat-option
+              *ngFor="let exp of listaExpLaboral"
+              [value]="exp.id_Experiencia_laboral"
+            >
+              {{ exp.empresa }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('experiencialaboral')?.errors?.['required']"
+          >
+            La empresa es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Usuario</mat-label>
+          <mat-select formControlName="users">
+            <mat-option
+              *ngFor="let us of listaUsuarios"
+              [value]="us.id"
+            >
+              {{ us.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="obtenerControlCampo('users')?.errors?.['required']"
+          >
+            La empresa es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button class="aceptar-button">Aceptar</button>
+        <button mat-raised-button class="cancelar-button" routerLink="/formacionacademica/nuevo">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>

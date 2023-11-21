@@ -1,0 +1,37 @@
+<mat-toolbar class="custom-toolbar" >
+  <img src="assets/LWLogo.png" alt="image" class="logo">
+  <Span class="title">LITTLE<br>WISH</Span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menuPerfil">
+      <mat-icon class="white-icon">account_circle</mat-icon>
+  </button>
+  <span class="space-icons"></span>
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menuOptions">
+      <mat-icon class="white-icon">menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #menuPerfil="matMenu">
+  <button mat-menu-item routerLink="" (click)="cerrar()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+  
+    </button>
+    <button mat-menu-item >Rol:
+      <span>{{role}}</span>
+    </button>
+</mat-menu>
+
+<mat-menu #menuOptions="matMenu">
+  <button mat-menu-item routerLink="profilee" *ngIf="role == 'ADMINISTRADOR' || role == 'DESARROLLADOR' || role == 'EMPRESARIO'">profile</button>
+  <button mat-menu-item routerLink="proyecto" *ngIf="role == 'ADMINISTRADOR' || role == 'DESARROLLADOR' || role == 'EMPRESARIO'">Lista de Proyectos</button>
+  <button mat-menu-item routerLink="pagos" *ngIf="role == 'ADMINISTRADOR' || role == 'DESARROLLADOR' || role == 'EMPRESARIO'">Pagar proyecto</button>
+  <button mat-menu-item routerLink="usuarios" *ngIf="role == 'ADMINISTRADOR' || role == 'DESARROLLADOR' || role == 'EMPRESARIO'">Lista de Usuarios</button>
+  
+</mat-menu>
+
+
+<router-outlet></router-outlet>
+<div [hidden]="route.children.length!==0">
+  <app-profile-empresario></app-profile-empresario>
+</div>

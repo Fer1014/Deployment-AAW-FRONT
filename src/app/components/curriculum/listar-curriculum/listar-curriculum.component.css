@@ -1,0 +1,25 @@
+.center-image {
+    display: block;
+    margin: 0 auto;
+}
+.actualizar-button{
+    margin-top: 29px;
+    font-family: 'Kiwi Maru', serif;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #40BF80;
+    color: white; 
+
+    text-transform: uppercase;
+    
+}
+.eliminar-button{
+    margin-top: 10px;
+    font-family: 'Kiwi Maru', serif;
+    border-radius: 20px;
+    background-color: #40BF80;
+    color: white; 
+    padding: 10px 20px; 
+    text-transform: uppercase;
+}
+  

@@ -1,0 +1,81 @@
+.logo-img {
+    width: 50px;
+    height: auto;
+    margin-left: 75px;
+}
+
+.toolbar {
+    background-color: #292424;
+    color: rgb(255, 255, 255);
+    font-family: 'Kiwi Maru', serif;
+    text-align: center;
+}
+
+.flex {
+    flex: 1;
+}
+.flexentreicons {
+    flex: 0.02;
+}
+
+.container-form {
+    border-radius: 30px;
+    box-shadow: #292424;
+    height: 600px;
+    max-width: 1200px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.custom-button{
+    border-radius: 20px;
+    background-color: #40BF80;
+    color: white; 
+    padding: 10px 20px; 
+    text-transform: uppercase;
+}
+
+h2{
+    margin-top: 100px;
+    font-family: 'Kiwi Maru', serif;
+}
+
+.aceptar-button{
+    margin-top: 29px;
+    margin-right: 20px;
+    font-family: 'Kiwi Maru', serif;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #40BF80;
+    color: white; 
+    padding: 10px 20px; 
+    text-transform: uppercase;
+    
+}
+.cancelar-button{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: 'Kiwi Maru', serif;
+    border-radius: 20px;
+    background-color: #40BF80;
+    color: white; 
+    padding: 10px 20px; 
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Kiwi Maru', serif;
+    margin-top: 20px;
+}
+
+mat-form-field {
+    width: 1000px;
+    margin-bottom: 20px;
+}

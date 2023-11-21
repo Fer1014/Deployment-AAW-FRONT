@@ -1,0 +1,17 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.container {
+    text-align: center;
+    margin: 20px;
+}
+
+.title {
+    color: #1976D2; /* Color primario de Angular Material (puedes ajustar según tu preferencia) */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+canvas {
+    max-width: 80%; /* Ajusta el ancho máximo del gráfico según tus necesidades */
+    margin: 0 auto; /* Centra el gráfico horizontalmente */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el gráfico */
+}

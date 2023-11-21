@@ -1,0 +1,38 @@
+/* Establecer el fondo negro y el color blanco para el texto en la barra de herramientas */
+.custom-toolbar {
+    background-color: #292424;
+    color: white;
+    display: flex;
+    height: 88px;
+    padding: 0 50px; /* Ajusta según sea necesario */
+}
+.example-spacer {
+    flex: 1;
+}
+
+/* Alinear verticalmente el texto con la imagen y ajustar el espaciado */
+.title {
+    font-size: 28px;
+    font-family: 'Kiwi Maru', serif;
+    margin-top: 8px; /* Ajusta según sea necesario */
+    margin-right: 10px; /* Ajusta según sea necesario */
+}
+
+/* Color blanco para los iconos en los botones */
+.white-icon {
+    color: white;
+    font-size: 26px;
+}
+.example-icon{
+    font-size: 10px;
+}
+
+/* Estilo personalizado para el logotipo */
+.logo {
+    height: 83.54px; /* Ajusta según sea necesario */
+    width: 88px;
+    margin-right: 10px; /* Ajusta según sea necesario */
+}
+.space-icons{
+    margin-right: 20px;
+}

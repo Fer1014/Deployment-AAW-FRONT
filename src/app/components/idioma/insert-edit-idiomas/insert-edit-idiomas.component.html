@@ -1,0 +1,37 @@
+<div class="container" style="text-align: center; color: blue;">
+    <h2>{{ edicion ? 'Editar Idioma' : 'Insertar Idioma' }}</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>ID Idioma</mat-label>
+        <input matInput placeholder="ID Idioma" formControlName="id_Idiomas" [attr.disabled]="edicion ? true : null" />
+      </mat-form-field>
+  
+      <br />
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Idiomas</mat-label>
+        <input matInput placeholder="Idiomas" formControlName="idiomas" />
+      </mat-form-field>
+  
+      <br />
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Nivel Escrito</mat-label>
+        <input matInput placeholder="Nivel Escrito" formControlName="nivelEscrito" />
+      </mat-form-field>
+  
+      <br />
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Nivel Oral</mat-label>
+        <input matInput placeholder="Nivel Oral" formControlName="nivelOral" />
+      </mat-form-field>
+  
+      <br />
+  
+      <button mat-raised-button color="primary">{{ edicion ? 'Actualizar' : 'Aceptar' }}</button>
+      <button mat-raised-button color="warn" routerLink="/idiomas/listar">Cancelar</button>
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+  

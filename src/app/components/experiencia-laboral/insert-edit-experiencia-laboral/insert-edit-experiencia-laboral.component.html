@@ -1,0 +1,41 @@
+<div class="container" style="text-align: center; color: red;">
+    <h2>{{ edicion ? 'Editar Experiencia Laboral' : 'Insertar Experiencia Laboral' }}</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>ID Experiencia Laboral</mat-label>
+        <input matInput placeholder="ID Experiencia Laboral" formControlName="id_Experiencia_laboral"
+          [attr.disabled]="edicion ? true : null" />
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Empresa</mat-label>
+        <input matInput placeholder="Empresa" formControlName="empresa" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Cargo</mat-label>
+        <input matInput placeholder="Cargo" formControlName="cargo" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="inicioPicker" formControlName="fechaInicio" />
+        <mat-datepicker-toggle matSuffix [for]="inicioPicker"></mat-datepicker-toggle>
+        <mat-datepicker #inicioPicker></mat-datepicker>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Finalización</mat-label>
+        <input matInput [matDatepicker]="finalizacionPicker" formControlName="fechaFinalizado" />
+        <mat-datepicker-toggle matSuffix [for]="finalizacionPicker"></mat-datepicker-toggle>
+        <mat-datepicker #finalizacionPicker></mat-datepicker>
+      </mat-form-field>
+      <br />
+  
+      <button mat-raised-button color="primary">{{ edicion ? 'Actualizar' : 'Aceptar' }}</button>
+      <button mat-raised-button color="warn" routerLink="/experiencia-laboral/listar">Cancelar</button>
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+  

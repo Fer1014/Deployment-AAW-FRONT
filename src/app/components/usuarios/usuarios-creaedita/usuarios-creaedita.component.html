@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-form">
+        <div class="logo-info">
+            <div class="logo-info-child">
+                <img src="assets/LWLogo.png" alt="Logo de mi aplicación" class="logo-img">
+                <h2>¡Bienvenido!</h2>
+                <p>Encantado de tenerte por aqui, por favor completa las campos para poder registrar tu cuenta.</p>
+            </div>
+        </div>
+        <div class="form-info">
+            <div class="form-info-child">
+                <h1>Registro de nuevo usuario</h1>
+                <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+                    <div class="inputs1">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Usuario</mat-label>
+                            <input matInput placeholder="Usuario" formControlName="username" maxlength="15" />
+                            <mat-error *ngIf="obtenerControlCampo('username')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput placeholder="Password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" minlength="5" />
+                            <mat-hint>5 caracteres como mínimo</mat-hint>
+                            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                            </mat-icon>
+                            <mat-error *ngIf="obtenerControlCampo('password')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+
+                        <br />
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput placeholder="Nombre" formControlName="name" maxlength="25" />
+                            <mat-error *ngIf="obtenerControlCampo('name')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Apellidos</mat-label>
+                            <input matInput placeholder="Apellidos" formControlName="apellidos" maxlength="25" />
+                            <mat-error *ngIf="obtenerControlCampo('apellidos')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="inputs2">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>DNI</mat-label>
+                            <input matInput placeholder="DNI" formControlName="dni" maxlength="25" />
+                            <mat-error *ngIf="obtenerControlCampo('dni')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Correo</mat-label>
+                            <input matInput placeholder="Correo" formControlName="correo" maxlength="25" />
+                            <mat-error *ngIf="obtenerControlCampo('correo')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Teléfono</mat-label>
+                            <input matInput placeholder="Teléfono" formControlName="telefono" maxlength="25" />
+                            <mat-error *ngIf="obtenerControlCampo('telefono')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Empresa</mat-label>
+                            <input matInput placeholder="Empresa" formControlName="empresa" maxlength="25" />
+                            <mat-error *ngIf="obtenerControlCampo('empresa')?.errors?.['required']">
+                                Complete el campo
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <div class="container-buttons">
+                            <button mat-button class="custom-button">Registrar</button>
+                            <button mat-button routerLink="login" class="custom-button2">Cancelar</button>
+                        </div>
+                        <br>
+                        <p>{{ mensaje }}</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

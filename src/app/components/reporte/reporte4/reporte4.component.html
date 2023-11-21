@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <title>Reporte04</title>
+  </head>
+  <body>
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Promedio de puntuación por usuario</h1>
+      </div>
+      <div style="text-align: center">
+        <!-- Gráfico de barras -->
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barCharOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        >
+          <!-- Cambiado de 'chartType' a 'type' -->
+        </canvas>
+      </div>
+    </div>
+  </body>
+</html>

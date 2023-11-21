@@ -1,0 +1,126 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.logo-img {
+    width: 50px;
+    height: auto;
+    margin-left: 75px;
+}
+.toolbar {
+    background-color: #292424;
+    color: rgb(255, 255, 255);
+    font-family: 'Kiwi Maru', serif;
+    text-align: center;
+}
+
+.flex {
+    flex: 1;
+}
+
+.container-form{
+    display: flex;
+    border-radius: 30px;
+    height: 600px;
+    max-width: 1200px;
+    margin: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.logo-info{
+    position: relative; /* Establece la posición a relativa para controlar el z-index */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* Agrega una sombra en el lado derecho */
+    z-index: 2;
+}
+
+.logo-info-child{
+    width: 100%;
+    padding: 30px 30px;
+}
+
+.logo-info-child img{
+    height: 300px;
+    width: auto;
+    display: block;
+    margin:  0 auto;
+    margin-bottom: 100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.logo-info-child h2{
+    font-family: 'Kiwi Maru', serif; 
+    font-size: 35px; 
+    color: #333;
+    margin-top: 25px;
+}
+
+
+.logo-info-child p {
+    font-family: 'Kiwi Maru', serif; 
+    font-size: 25px; 
+    margin: 20px 0;
+    color: #555;
+}
+
+.form-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    text-align: center;
+    background-color: #ffffff;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.custom-button, .custom-button2 {
+    border-radius: 20px;
+    background-color: #40BF80;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.container-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.form-info h2{
+    margin-top: 20px;
+}
+.form-info h1{
+    margin-bottom: 50px;
+}
+
+.inputs1, .inputs2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.inputs1 {
+    margin-right: 5%; 
+}
+
+.example-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+

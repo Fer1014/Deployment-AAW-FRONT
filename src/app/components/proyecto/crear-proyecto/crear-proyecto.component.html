@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="text-align: center">
+        <h2>Registro de Proyecto</h2> 
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+ 
+            <br />
+            
+            <mat-form-field class="example-full-width">
+              <mat-label>Titulo</mat-label>
+              <input
+                matInput
+                placeholder="nombre"
+                formControlName="nombre"
+              />
+              <mat-error
+                *ngIf="obtenerControlCampo('nombre')?.errors?.['required']"
+              >
+                El Titulo es obligatorio.
+              </mat-error>
+            </mat-form-field>
+
+
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Descripcion</mat-label>
+            <input
+              matInput
+              placeholder="descripcion"
+              formControlName="descripcion"
+            />
+            <mat-error
+              *ngIf="obtenerControlCampo('descripcion')?.errors?.['required']"
+            >
+              la Descripcion es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br/>
+
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            
+            <input 
+            matInput 
+            placeholder="fechaInicio"
+            [matDatepicker]="pickerInicio" 
+            formControlName="fechaInicio"
+                
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle 
+            matIconSuffix 
+            [for]="pickerInicio"></mat-datepicker-toggle>
+            <mat-datepicker #pickerInicio></mat-datepicker>
+            <mat-error
+            *ngIf="obtenerControlCampo('fechaInicio')?.errors?.['required']"
+          >
+            La fecha de Inicio es obligatoria.
+          </mat-error>
+          </mat-form-field>
+          
+
+          <br/>
+          <mat-form-field appearance="fill" class="example-full-width">
+  
+            <input 
+            matInput 
+            placeholder="fechaFin"
+            [matDatepicker]="pickerFin" 
+            formControlName="fechaFin"
+            
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix
+             [for]="pickerFin"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFin></mat-datepicker>
+
+            <mat-error
+            *ngIf="obtenerControlCampo('fechaFin')?.errors?.['required']"
+          >
+            La fecha de Fin es obligatoria.
+          </mat-error>
+          </mat-form-field>
+          
+       
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>puesto buscado</mat-label>
+            <input
+              matInput
+              placeholder="puestrobuscado"
+              formControlName="puestrobuscado"
+            />
+            <mat-error
+              *ngIf="obtenerControlCampo('puestrobuscado')?.errors?.['required']"
+            >
+              El puesto buscado  es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br/>
+          <mat-form-field>
+            <mat-label>Usuario Encargado</mat-label>
+            <mat-select formControlName="users">
+              <mat-option
+                *ngFor="let u of listaUsuarios"
+                [value]="u.id"
+              >
+                {{ u.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="obtenerControlCampo('users')?.errors?.['required']"
+            >
+              Los créditos son obligatorios.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <button mat-raised-button class="custom-button">Aceptar</button>
+        <button mat-raised-button class="custom-button" routerLink="/components/administrador/dashboard/proyectos/listar">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+        </form>
+    </div>
+</body>
+</html>
