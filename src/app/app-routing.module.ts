@@ -34,23 +34,23 @@ import { IdiomaComponent } from './components/idioma/idioma.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent,
+    path: '',
+    component: HomeComponent,
   },
-  /*{
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
-  },*/
+  },
   {
     path: 'login',
     component: LoginComponent,
   },
   {
-    path:'usuarios',
+    path: 'usuarios',
     component: UsuariosComponent,
     children: [
-      {path: 'nuevo',component:UsuariosCreaeditaComponent}
+      { path: 'nuevo', component: UsuariosCreaeditaComponent }
 
     ]
   },
@@ -59,7 +59,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./components/components.module').then((m) => m.ComponentsModule),
   },
-  
+
 ];
 
 @NgModule({
